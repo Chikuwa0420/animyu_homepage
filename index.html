@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIMUSEUM!!_HOMEPAGE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button id="menu-btn" class="btn">
+        <img src="image/btn/menu-icon.png" alt="メニュー">
+    </button>
+
+    <button id="back-btn" class="btn">
+        <img src="image/btn/back-icon.png" alt="topへ戻る">
+    </button>
+
+    <nav id="toc" class="toc">
+        <h2>目次</h2>
+        <ul>
+            <li><a href="#poster">あにみゅ!関連イベント</a></li>
+            <li><a href="#performers">演者紹介</a></li>
+            <li><a href="#faq">よくある質問</a></li>
+            <li><a href="#faq">ARCHIVE</a></li>
+        </ul>
+    </nav>
+
+    <!--バナー動画-->
+<div class="video-banner">
+            <video id="bg-video" src="movie/video/animyuko_BW.mp4" autoplay muted playsinline></video>
+            <h1>ANIMUSEUM!</h1>
+        </div>
+
+    <div class="content">
+        
+
+        <section id="poster" class="fade-in-left"> <!--フェードインのクラス-->
+            <h2 class="section-title">フライヤー</h2>
+            <p>あにみゅ!関連イベント</p>
+            <!--ポスター画像枠二枚-->
+            <div class="poster-wrapper">
+    <img src="image/picture/2026_shinkan.png" class="picture" id="poster-back" alt="2026新歓">
+    <img src="image/picture/vol.42.png" class="picture" id="poster-front" alt="イベントのポスター画像">
+</div>
+
+            <div class="poster-buttons"><!--画像変更ボタン--><!--ポスター画像の変更ここから-->
+    <button class="poster1" onclick="changePoster('image/picture/vol.42.png')"></button>
+    <button class="poster2" onclick="changePoster('image/picture/2026_shinkan.png')"></button>
+    <button class="poster3" onclick="changePoster('image/picture/2026_gaiden.png')"></button>
+    
+</div>
+        </section>
+
+        <section id="performers" class="fade-in-left">
+            <h2 class="section-title">演者紹介</h2>
+            <div class="guest-box">
+                <h3>organaizer:つぶk</h3>
+                <img src="guest-a.jpg" alt="ゲストAの写真">
+                <p>ここにゲストAのプロフィールや紹介文を書きます。</p>
+            </div>
+            <div class="guest-box">
+                <h3>ちくわ</h3>
+                <img src="guest-b.jpg" alt="ゲストBの写真">
+                <p>ここにゲストBのプロフィールや紹介文を書きます。</p>
+            </div>
+        </section>
+
+        <section id="access" class="fade-in-left">
+            <h2 class="section-title">ACCESS</h2>
+            <p>MAP</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.4350131328642!2d139.0425214763863!3d37.920266671949086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5ff4c9edd4b0f1bd%3A0xb45e16a50ecc10c7!2sLiveHall%20GOLDEN%20PIGS!5e0!3m2!1sja!2sjp!4v1776216340257!5m2!1sja!2sjp" width=100% height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+        
+
+
+        <section id="faq" class="fade-in-left">
+            <h2 class="section-title">よくある質問</h2>
+            <dl>
+                <dt>Q. イベントの開催日時はいつですか？</dt>
+                <dd>A. 2026年6月21日（土）13:00から開始となります。</dd>
+
+                <dt>Q. 途中入退室可能ですか？</dt>
+                <dd>A. はい。再入場時に、入場の際にお渡しするチケットの半券をお見せください。</dd>
+            </dl>
+        </section>
+        
+        <section id="archive" class="fade-in-left">
+            <h2 class="section-title">ARCHIVE</h2>
+            <p>過去ANIMUSEUM!の記録</p>
+            <p>vol.41</p>
+            <!-- <video class="pv" src="https://youtu.be/oSfbfjjvNXw"  autoplay muted playsinline></video>-->
+           
+            <a href="https://www.youtube.com/watch?v=oSfbfjjvNXw" target="_blank" rel="noopener noreferrer" class="pv-wrapper">
+            <iframe 
+            class="pv" 
+            src="https://www.youtube.com/embed/oSfbfjjvNXw?autoplay=1&mute=1&controls=0&loop=1&playlist=oSfbfjjvNXw"
+            
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            loading="lazy"></iframe>
+        </a>
+        </section>
+<!--src="https://www.youtube.com/embed/oSfbfjjvNXw?autoplay=1&mute=1"-->
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

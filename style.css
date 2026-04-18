@@ -1,0 +1,317 @@
+/* ウェブサイト全体の基本的なデザイン */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    background-color: #3b0143;
+    overflow-x: hidden; /* 横スクロールを防止 */
+
+    position: relative;/*背景画像用の疑似要素*/
+}
+
+/*背景画像*/
+body::before {
+    content: "";
+    position: fixed;      /* スクロールしても動かないように固定 */
+    top: 0;
+    left: 0;
+    width: 100vw;         /* 画面幅いっぱい */
+    height: 100vh;        /* 画面の高さいっぱい */
+    z-index: -1;          /* 全てのコンテンツの一番後ろに配置 */
+    pointer-events: none; /* マウスクリックなどの邪魔にならないようにする */
+
+    /* 画像*/
+    background-image: url('image/btn/animyuko.png');
+    background-size: 50%;  
+    background-position: calc(50% + 20vw) calc(50% + 15vh);/* 画面の右下真ん中よりに配置 */
+    background-repeat: no-repeat;/* 繰り返しを防ぐ */
+    
+    /* 透明度*/
+    opacity: 0.5;
+
+}
+
+
+/* メインコンテンツの幅などの設定 */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px 20px 0 20px;/*空白の設定*/
+}
+
+/* メニューボタン（右上固定）の設定 */
+#menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* 目次よりも前面に表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 100px; /* アイコンの横幅（画像に合わせて調整可能） */
+    height: 100px; /* アイコンの縦幅 */
+}
+#menu-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* バックボタン（右下固定）の設定 */
+#back-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* 目次よりも前面に表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 50px; /* アイコンの横幅（画像に合わせて調整可能） */
+    height: 50px; /* アイコンの縦幅 */
+}
+#back-btn img {
+    width: 100%;
+    color: #ffffff;
+    height: auto;
+    display: block;
+}
+
+
+
+/* 目次（隠しメニュー）の設定 */
+.toc {
+    position: fixed;
+    top: 0;
+    right: -200px; /* 初期状態では画面の右外（-300px）に配置して隠す */
+    opacity: 0; /*透明度0*/
+    width: 40vw;
+    height: 100vh;
+    background-color: #87558f;
+    box-shadow: -2px 0 5px rgba(101, 49, 108, 0.2);
+    transition: right 0.8s ease, opacity 1.2s ease; /* スライドする際のアニメーション速度 */
+    z-index: 999;
+    padding: 80px 20px 20px; /* ボタンと被らないよう上部に余白 */
+    box-sizing: border-box; 
+}
+
+/* 目次が表示されている時の状態（JSでこのクラスを付け外しします） */
+.toc.active {
+    right: 0; /* 画面の右端ぴったりに移動 */
+    opacity: 1.0;
+}
+
+.toc h2 {
+    margin-top: 100px;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+.toc ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+.toc li {
+    margin-bottom: 15px;
+}
+.toc a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    display: block;
+}
+.toc a:hover {
+    text-decoration: underline;
+    color: #f4f413;
+}
+/* ページの一番上の空白を消すためのリセット */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* 動画とタイトルを囲むバナー枠の設定 */
+.video-banner {
+    position: relative;
+    width: 100%;
+    height: 250px; /*バナーの高さを調整*/
+    display: flex;
+    line-height: 0;   /* 下の隙間対策 */
+    overflow: hidden;
+}
+
+/* バナー内の動画の設定 */
+.video-banner video {
+    opacity: 0.1;
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 動画のアスペクト比を保ったまま切り取り*/
+    z-index: -1;       /* 後ろに配置 */
+}
+
+/* バナー内のタイトルの設定 */
+.video-banner h1 {
+    position: absolute;
+    left: 20px;       /* 左からの距離 */
+    bottom: 0;     /* 下からの距離 */
+    margin-top: 0; /* 上の余白を消す */
+    margin: 0;        /* 余計な余白を削除 */
+    color: #fff;
+    font-size: 3rem;
+    z-index: 10;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7); /* 文字を見やすく */
+    line-height: 1.2; /* 文字自体の行間を調整 */
+}
+
+/*ポスター画像変更ボタン*/
+/*ボタンの共通設定*/
+.poster-buttons button {
+    margin: 30px 10px -80px; /* 左右の余白を均等にして中央寄せ */
+    width: 100px;       /* ボタンの横幅 */
+    height: 100px;       /* ボタンの縦幅 */
+    border-radius: 50%;    /* 円形にくり抜く */
+    border: none;       /*デフォルトの枠線を消す*/
+    border: 4px solid #8836ba; /* 枠線の色 */
+    background-color: transparent; /*背景色を透明にする*/
+    cursor: pointer;    /* ウスを乗せたら指のマークにする */
+    background-size: cover;        /* 【変更】containからcoverへ。円の隙間をなくすため */
+    background-repeat: no-repeat;  /* 画像の繰り返しを防ぐ */
+    background-position: center;   /* 画像の中心を基準に配置 */
+    opacity: 0.5;
+    transition: 0.3s;   /* アニメーションを滑らかにする魔法の1行 */
+}
+
+/*マウスが乗った時のエフェクト*/
+.poster-buttons button:hover {
+    opacity: 1.0; /* マウスが乗ったら通常透明度*/
+    transform: translateY(-2px); /* ほんの少しだけ上にフワッと浮かす */
+}
+/*画像ボタンの背景画像*/
+.poster1 {
+    background-image: url('image/picture/vol.42.png'); /* vol.42の画像へのパス */
+}
+.poster2 {
+    background-image: url('image/picture/2026_shinkan.png'); /* 新歓の画像へのパス */
+}
+.poster3 {
+    background-image: url('image/picture/2026_gaiden.png'); /* 新歓の画像へのパス */
+}
+
+/* 各セクションのデザイン */
+section {
+    margin-bottom: 50px;
+    scroll-margin-top: 20px; /* 目次から飛んだ際の上部余白 */
+}
+
+/*セクションのアニメーション*/
+/* ① 初期状態：透明にして、少し左（-50px）にずらしておく */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    /* opacityとtransformの変化に0.8秒かける設定（ease-outはフワッと止まる動き） */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* ② 画面に入った時の状態：JavaScriptでこのクラス(.is-visible)を付与する */
+.fade-in-left.is-visible {
+    opacity: 1;
+    transform: translateX(0); /* 元の位置に戻る */
+}
+
+
+h2.section-title {
+    border-bottom: 2px solid #e0e308;
+    padding-bottom: 5px;
+}
+
+
+/*画像*/
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+.picture {
+  width: 60%; /* または 70vw */
+  display: block; /* ブロック要素に変更 */
+  margin: 0 auto; /* 左右の余白を均等にして中央寄せ */
+}
+
+.btn{
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+}
+
+.guest-box {
+    margin-bottom: 30px;
+}
+.guest-box img {
+    max-width: 300px;
+}
+
+/* 画像を重ねるための基準となる箱 */
+.poster-wrapper {
+    position: relative;
+    width: 60%;         /* 元の .picture と同じ幅にする */
+    margin: 0 auto;     /* 中央寄せ */
+}
+
+/* 裏側の画像（土台） */
+#poster-back {
+    width: 100%;
+    display: block;
+    border-radius: 4px;
+}
+
+/* 表側の画像（上にぴったり被せる）*/
+#poster-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    /* 0.8秒かけて透明度を変化させる */
+    transition: opacity 1.8s ease; 
+}
+
+/*ポスター画像の移り変わり設定*/
+#main-poster {
+    transition: opacity 1.8s ease; 
+    opacity: 1;
+}
+/* JSで追加・削除する「透明にする」ためのクラス */
+.fade-out-poster {
+    opacity: 0 !important; /* 透明度を0（見えない状態）にする */
+}
+
+/*ARCHIVE動画*/
+.pv-wrapper {
+    display: block;
+    width: 70%;
+    margin: 0 auto; /* 中央配置 */
+    text-decoration: none; /* リンクの下線を消す */
+    cursor: pointer; 
+}
+.pv{
+    display: block;
+    width: 100%;
+    margin: 0 auto; /* 左右の余白を均等にして中央に配置する */
+    border: 10px solid #6f289b; /* 枠線の色 */
+    border-radius: 50px; /* 角を丸くする */
+    aspect-ratio: 16 / 9;
+    pointer-events: none;
+}
+
+/* よくある質問のデザイン */
+dl { margin-top: 20px; }
+dt { font-weight: bold; margin-top: 15px; color: #e0e308; }
+dd { margin-left: 0; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #eee; }
