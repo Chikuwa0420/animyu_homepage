@@ -208,6 +208,16 @@ section {
     margin-bottom: 50px;
     scroll-margin-top: 20px; /* 目次から飛んだ際の上部余白 */
 }
+.event-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e757db; 
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
 .animyuko-wrapper {
     max-width: 60%;
     height: auto;
