@@ -234,6 +234,49 @@ h3{
     color: #e0e308;
 }
 
+/* --- 演者リストのデザイン --- */
+.performer-names-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.performer-name {
+    cursor: pointer;
+    padding: 8px 16px;
+    background-color: #f0f0f0; /* 通常時の背景色 */
+    color: #333;
+    border-radius: 20px; /* 少し丸みを持たせる */
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+/* 選択されている（アクティブな）名前のデザイン */
+.performer-name.is-active {
+    background-color: #ff6b6b; /* テーマカラーに合わせて変更してください */
+    color: #ffffff;
+    font-weight: bold;
+}
+/* ホバー時の挙動 */
+.performer-name:hover {
+    opacity: 0.8;
+}
+/* --- 詳細ボックス（切り替わる部分）のデザイン --- */
+.guest-box {
+    display: none; /* 基本はすべて非表示にしておく */
+    animation: fadeIn 0.4s ease; /* ふわっと表示させるアニメーション */
+}
+/* アクティブなボックスだけ表示する */
+.guest-box.is-active {
+    display: block; 
+}
+/* ふわっと表示させるためのキーフレーム */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 /*画像*/
 img {
