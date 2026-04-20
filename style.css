@@ -208,6 +208,10 @@ section {
     margin-bottom: 50px;
     scroll-margin-top: 20px; /* 目次から飛んだ際の上部余白 */
 }
+.animyuko-wrapper {
+    max-width: 60%;
+    height: auto;
+}
 
 /*セクションのアニメーション*/
 /* ① 初期状態：透明にして、少し左（-50px）にずらしておく */
@@ -338,6 +342,28 @@ img {
 /* JSで追加・削除する「透明にする」ためのクラス */
 .fade-out-poster {
     opacity: 0 !important; /* 透明度を0（見えない状態）にする */
+}
+
+/* SNSボタンのデザイン */
+.sns-button {
+    
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.sns-share-button {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #e757db; 
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
 }
 
 /*ARCHIVE動画*/
