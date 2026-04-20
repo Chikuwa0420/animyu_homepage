@@ -208,6 +208,10 @@ section {
     margin-bottom: 50px;
     scroll-margin-top: 20px; /* 目次から飛んだ際の上部余白 */
 }
+.animyuko-wrapper {
+    max-width: 60%;
+    height: auto;
+}
 
 /*セクションのアニメーション*/
 /* ① 初期状態：透明にして、少し左（-50px）にずらしておく */
