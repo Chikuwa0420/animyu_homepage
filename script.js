@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const tocLinks = document.querySelectorAll('.toc a');
     const fadeElements = document.querySelectorAll('.fade-in-left');
     const bgVideo = document.getElementById('bg-video');
+    const nameButtons = document.querySelectorAll('.performer-name');
+    const guestBoxes = document.querySelectorAll('.guest-box');
+
 
     //バナーの動画再生周期
     if (bgVideo) {
@@ -68,7 +71,26 @@ document.addEventListener('DOMContentLoaded', function() {
     fadeElements.forEach(element => {
         observer.observe(element);
     });
+
+// ===  演者紹介のタブ切り替え処理 ===
+    nameButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 一旦すべての名前ボタンから 'is-active' クラスを外す
+            nameButtons.forEach(btn => btn.classList.remove('is-active'));
+            // クリックされた名前ボタンに 'is-active' クラスを付ける
+            button.classList.add('is-active');
+
+            // クリックされたボタンの data-target の値（id名）を取得
+            const targetId = button.getAttribute('data-target');
+
+            // 一旦すべての詳細ボックスから 'is-active' クラスを外す（非表示にする）
+            guestBoxes.forEach(box => box.classList.remove('is-active'));
+            // ターゲットとなる詳細ボックスに 'is-active' クラスを付ける（表示する）
+            document.getElementById(targetId).classList.add('is-active');
+        });
+    });
 });
+
 
  //画像切り替えボタンの処理
 // ポスター画像を変更する関数
@@ -82,28 +104,6 @@ function changePoster(imagePath) {
 
         //裏の画像を新しい物にする
         backImage.src = imagePath;
-
-/*
-        // まず画像に「透明になるクラス」をつける
-        mainPoster.classList.add('fade-out-poster');
-        
-        // 0.5秒（500ミリ秒）待ってから、中身の処理を実行する
-        setTimeout(function() {
-            // 新しい画像の読み込みが完了したら透明を解除する予約
-            mainPoster.onload = function() {
-                // 新しい画像が現れる
-                mainPoster.classList.remove('fade-out-poster');
-                
-                // リセット
-                mainPoster.onload = null; 
-            };
-            // 画像のパスを新しいものに書き換える
-            mainPoster.src = imagePath;
-            
-            // 「透明になるクラス」を外す
-            mainPoster.classList.remove('fade-out-poster');
-            
-        }, 800); // 500ms待ち CSSの0.5sより　*/
 
         // 新しい裏画像の読み込みが完了したらアニメーション開始
         backImage.onload = function() {
