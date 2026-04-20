@@ -197,7 +197,7 @@ body, html {
     background-image: url('image/picture/vol.42.png'); /* vol.42の画像へのパス */
 }
 .poster2 {
-    background-image: url('image/picture/2026_shinkan.png'); /* 新歓の画像へのパス */
+    background-image: url('image/picture/vol.41.jpg'); /* 新歓の画像へのパス */
 }
 .poster3 {
     background-image: url('image/picture/2026_gaiden.png'); /* 新歓の画像へのパス */
@@ -219,7 +219,7 @@ section {
     font-weight: bold;
 }
 .animyuko-wrapper {
-    max-width: 60%;
+    max-width: 70%;
     height: auto;
 }
 
@@ -321,6 +321,7 @@ img {
 /* 画像を重ねるための基準となる箱 */
 .poster-wrapper {
     position: relative;
+    top:10px;
     width: 60%;         /* 元の .picture と同じ幅にする */
     margin: 0 auto;     /* 中央寄せ */
 }
