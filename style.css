@@ -344,6 +344,28 @@ img {
     opacity: 0 !important; /* 透明度を0（見えない状態）にする */
 }
 
+/* SNSボタンのデザイン */
+.sns-button {
+    
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
+.sns-share-button {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #e757db; 
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+}
+
 /*ARCHIVE動画*/
 .pv-wrapper {
     display: block;
