@@ -235,7 +235,7 @@ section {
 /* ① 初期状態：透明にして、少し左（-50px）にずらしておく */
 .fade-in-left {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateY(50px);
     /* opacityとtransformの変化に0.8秒かける設定（ease-outはフワッと止まる動き） */
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
@@ -243,7 +243,7 @@ section {
 /* ② 画面に入った時の状態：JavaScriptでこのクラス(.is-visible)を付与する */
 .fade-in-left.is-visible {
     opacity: 1;
-    transform: translateX(0); /* 元の位置に戻る */
+    transform: translateY(0); /* 元の位置に戻る */
 }
 
 
@@ -255,7 +255,7 @@ h2.section-title {
 h2.section-title span {
     display: inline-block;
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(20px);
 }
 
 /* 親のsection(.fade-in-left)が画面に入って .is-visible が付与された時に、
@@ -274,7 +274,7 @@ h2.section-title span {
 @keyframes titleFadeDown {
     0% {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(20px);
     }
     100% {
         opacity: 1;
