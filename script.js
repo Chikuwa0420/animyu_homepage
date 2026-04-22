@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const bgVideo = document.getElementById('bg-video');
     const nameButtons = document.querySelectorAll('.performer-name');
     const guestBoxes = document.querySelectorAll('.guest-box');
+    const sectionTitles = document.querySelectorAll('.section-title');
 
 
     //バナーの動画再生周期
@@ -89,6 +90,27 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById(targetId).classList.add('is-active');
         });
     });
+
+// ===  セクションタイトルのフェードインアニメーション ===
+sectionTitles.forEach(title => {
+    // 元のテキストを取得して、前後の余白を消す
+    const text = title.textContent.trim();
+    // 中身を一旦空にする
+    title.textContent = '';
+
+    // テキストを一文字ずつ分割してspanタグで囲む
+    text.split('').forEach((char, index) => {
+        const span = document.createElement('span');
+        // 空白文字の場合はレイアウト崩れを防ぐために特殊文字を入れる
+        span.textContent = char === ' ' ? '\u00A0' : char; 
+        
+        // CSS変数 '--i' に何文字目か（0, 1, 2...）の番号をセット
+        span.style.setProperty('--i', index);
+        
+        // 生成したspanをh2の中に戻す
+        title.appendChild(span);
+    });
+});
 });
 
 
