@@ -235,17 +235,26 @@ section {
 /* ① 初期状態：透明にして、少し左（-50px）にずらしておく */
 .fade-in-left {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateX(-50px);
     /* opacityとtransformの変化に0.8秒かける設定（ease-outはフワッと止まる動き） */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 /* ② 画面に入った時の状態：JavaScriptでこのクラス(.is-visible)を付与する */
 .fade-in-left.is-visible {
     opacity: 1;
-    transform: translateY(0); /* 元の位置に戻る */
+    transform: translateX(0); /* 元の位置に戻る */
 }
-
+.fade-in-right.is-visible {
+    opacity: 1;
+    transform: translateX(0); /* 元の位置に戻る */
+}
 
 h2.section-title {
     border-bottom: 2px solid #e0e308;
@@ -255,30 +264,45 @@ h2.section-title {
 h2.section-title span {
     display: inline-block;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-20px);
 }
 
 /* 親のsection(.fade-in-left)が画面に入って .is-visible が付与された時に、
   その中にある span のアニメーションを発火させる 
 */
 .fade-in-left.is-visible h2.section-title span {
-    animation: titleFadeDown 0.5s ease forwards;
+    animation: titleLeftSlide 0.5s ease forwards;
     
     /* 親の左からのフェードイン(0.8s)とタイミングを合わせるため、
       0.3秒遅らせてから、1文字あたり0.05秒ずつズラして発火
     */
     animation-delay: calc(0.3s + (0.05s * var(--i)));
 }
+.fade-in-right.is-visible h2.section-title span {
+    animation: titleRightSlide 0.5s ease forwards;
+    animation-delay: calc(0.3s + (0.05s * var(--i)));
+}
 
-/* 上から降りてくる動きの定義 */
-@keyframes titleFadeDown {
+/* 左からスライドインの動きの定義 */
+@keyframes titleLeftSlide {
     0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateX(-20px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
+    }
+}
+/* 右からスライドインの動きの定義 */
+@keyframes titleRightSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
 
