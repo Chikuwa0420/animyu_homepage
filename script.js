@@ -111,6 +111,18 @@ sectionTitles.forEach(title => {
         title.appendChild(span);
     });
 });
+// === あにみゅ子ちゃん画像の傾き処理 ===
+    const animyukoImg = document.querySelector('img[alt="あにみゅ子ちゃんの写真"]');
+    if (animyukoImg) {
+        animyukoImg.addEventListener('click', function() {
+            // 連続でクリックしても動くように、一度クラスを外す
+            this.classList.remove('tilt-active');
+            // ブラウザの描画をリセットする魔法のコード（これがないと2回目以降動かないことがあります）
+            void this.offsetWidth;
+            // アニメーション用のクラスを付与する
+            this.classList.add('tilt-active');
+        });
+    }
 });
 
 

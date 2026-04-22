@@ -321,6 +321,20 @@ h3{
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* --- あにみゅ子ちゃん画像クリック時のアニメーション --- */
+img[alt="あにみゅ子ちゃんの写真"] {
+    cursor: pointer; /* マウスを乗せたら指のマークにする */
+}
+/* JSで付与する傾きクラス */
+.tilt-active {
+    animation: tilt-return 0.5s ease-in-out; /* 0.5秒かけて滑らかに動く */
+}
+/* 傾いて戻る動きの定義 */
+@keyframes tilt-return {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(15deg); } /* 15度傾く*/
+    100% { transform: rotate(0deg); }
+}
 
 /*画像*/
 img {
