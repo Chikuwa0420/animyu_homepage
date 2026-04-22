@@ -23,11 +23,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 }
 
-
+// アイコンの状態を更新する共通の関数
+    function updateMenuIcon() {
+        const menuImg = menuBtn.querySelector('img');
+        if (toc.classList.contains('active')) {
+            menuImg.src = 'image/btn/menu-icon-batsu.png';
+        } else {
+            menuImg.src = 'image/btn/menu-icon.png';
+        }
+        // 連続でクリックしても動くように、一度クラスを外す
+            menuImg.classList.remove('change-menu-btn');
+            // ブラウザの描画をリセット
+            void menuImg.offsetWidth;
+            // アニメーション用のクラスを付与する
+            menuImg.classList.add('change-menu-btn');
+    }
     // メニューボタンをクリックした時の処理
     menuBtn.addEventListener('click', function() {
         // 目次パネルに 'active' クラスを付け外しする（表示・非表示の切り替え）
         toc.classList.toggle('active');
+        updateMenuIcon();// iconを更新する関数を呼び出す
     });
 
     //　目次の中のリンクをクリックした時の処理
@@ -35,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             // リンク先に飛ぶと同時に、目次パネルを閉じる（'active' クラスを外す）
             toc.classList.remove('active');
+            updateMenuIcon(); // iconを更新する関数を呼び出す
         });
     });
 
@@ -117,7 +133,7 @@ sectionTitles.forEach(title => {
         animyukoImg.addEventListener('click', function() {
             // 連続でクリックしても動くように、一度クラスを外す
             this.classList.remove('tilt-active');
-            // ブラウザの描画をリセットする魔法のコード（これがないと2回目以降動かないことがあります）
+            // ブラウザの描画をリセット
             void this.offsetWidth;
             // アニメーション用のクラスを付与する
             this.classList.add('tilt-active');
