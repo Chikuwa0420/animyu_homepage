@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backBtn = document.getElementById('back-btn');
     const toc = document.getElementById('toc');
     const tocLinks = document.querySelectorAll('.toc a');
-    const fadeElements = document.querySelectorAll('.fade-in-left');
+    const fadeElements = document.querySelectorAll('.fade-in-left, .fade-in-right');
     const bgVideo = document.getElementById('bg-video');
     const nameButtons = document.querySelectorAll('.performer-name');
     const guestBoxes = document.querySelectorAll('.guest-box');
