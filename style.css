@@ -30,9 +30,48 @@ body::before {
     
     /* 透明度*/
     opacity: 0.5;
-
+}
+/* フルスクリーンポスターの設定 */
+.full-screen-poster {
+    width: 100vw; /* 画面幅いっぱいにする */
+    line-height: 0; /* 画像の下にできる不要な隙間をなくす */
 }
 
+.full-screen-poster img {
+    width: 100%;
+    height: auto; /* 画像の比率を保ったまま横幅に合わせる */
+    display: block;
+}
+/* --- アニメーションの設計図（ズームアウト＆回転） --- */
+@keyframes spinZoomOut {
+    0% {
+        /* 最初は2倍の大きさ、かつ45度傾いた状態 */
+        transform: scale(1.1) rotate(5deg); 
+        opacity: 0; /* 最初は透明にしておくことで、より自然に現れます */
+    }
+
+    100% {
+        /* 最終的に元のサイズ、傾き0（水平）にピタッと収まる */
+        transform: scale(1) rotate(0deg); 
+        opacity: 1;
+    }
+}
+
+/* --- 画像にアニメーションを適用 --- */
+.full-screen-poster img {
+    width: 100%;
+    height: auto; 
+    object-fit: cover;
+    display: block;
+    
+    /* アニメーションの適用
+      spinZoomOut: 上で作ったアニメーション名
+      2.5s: 2.5秒かけて動く
+      cubic-bezier(...): 「最後にかけて動きがゆっくりになる」魔法の数値
+      forwards: アニメーションが終わった後の状態をキープする
+    */
+    animation: spinZoomOut 5.0s cubic-bezier(0.1, 1.0, 0.2, 1.0) forwards;
+}
 
 /* メインコンテンツの幅などの設定 */
 .content {
@@ -78,8 +117,8 @@ body::before {
     border: none;
     cursor: pointer;
     padding: 0;
-    width: 50px; /* アイコンの横幅（画像に合わせて調整可能） */
-    height: 50px; /* アイコンの縦幅 */
+    width: 80px; /* アイコンの横幅（画像に合わせて調整可能） */
+    height: 80px; /* アイコンの縦幅 */
 }
 #back-btn img {
     width: 100%;
