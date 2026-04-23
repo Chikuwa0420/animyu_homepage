@@ -46,7 +46,7 @@ body::before {
 @keyframes spinZoomOut {
     0% {
         /* 最初は2倍の大きさ、かつ45度傾いた状態 */
-        transform: scale(1.1) rotate(5deg); 
+        transform: scale(1.2) rotate(8deg); 
         opacity: 0; /* 最初は透明にしておくことで、より自然に現れます */
     }
 
@@ -67,11 +67,12 @@ body::before {
     /* アニメーションの適用
       spinZoomOut: 上で作ったアニメーション名
       2.5s: 2.5秒かけて動く
-      cubic-bezier(...): 「最後にかけて動きがゆっくりになる」魔法の数値
+      cubic-bezier(...): 「最後にかけて動きがゆっくりになる」
       forwards: アニメーションが終わった後の状態をキープする
     */
-    animation: spinZoomOut 5.0s cubic-bezier(0.1, 1.0, 0.2, 1.0) forwards;
+    animation: spinZoomOut 10.0s cubic-bezier(0.1, 1.0, 0.1, 1.0) forwards;
 }
+
 
 /* メインコンテンツの幅などの設定 */
 .content {
