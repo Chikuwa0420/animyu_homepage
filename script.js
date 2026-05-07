@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const btn3d = document.getElementById('btn-3d');
     const menuBtn = document.getElementById('menu-btn');
     const backBtn = document.getElementById('back-btn');
     const toc = document.getElementById('toc');
@@ -37,6 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
             void menuImg.offsetWidth;
             // アニメーション用のクラスを付与する
             menuImg.classList.add('change-menu-btn');
+    }
+
+    // 3Dボタンをクリックした時の処理
+    if (btn3d) {
+        btn3d.addEventListener('click', function() {
+            // もし「別のタブ」で開きたい場合は、こちらを使ってください
+            window.open('https://3-d-animyuko-view.vercel.app/', '_blank');
+        });
     }
     // メニューボタンをクリックした時の処理
     menuBtn.addEventListener('click', function() {
