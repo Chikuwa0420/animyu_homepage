@@ -94,6 +94,26 @@ body::before {
     padding: 15px 20px 0 20px;/*空白の設定*/
 }
 
+/* 3Dボタンの設定 */
+#3D-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 100px;
+    height: 100px;
+}
+
+#3D-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* メニューボタン（右上固定）の設定 */
 #menu-btn {
     position: fixed;
