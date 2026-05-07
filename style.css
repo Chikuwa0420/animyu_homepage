@@ -6,9 +6,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #3b0143;
-    overflow-x: hidden; /* 横スクロールを防止 */
-
     position: relative;/*背景画像用の疑似要素*/
+}
+
+.container {
+    overflow-x: hidden; /* 横揺れ防止*/
+    width: 100%;
 }
 
 /* 背景画像のスタイル */
@@ -94,44 +97,66 @@ body::before {
     padding: 15px 20px 0 20px;/*空白の設定*/
 }
 
-/* 3Dボタンの設定 */
-#3D-btn {
+/*btn-3dのスタイル */
+#btn-3d {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 100px;
-    height: 100px;
-}
-
-#3D-btn img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* メニューボタン（右上固定）の設定 */
-#menu-btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 2.5vh;
+    left: 5vw;
     z-index: 1000; /* 目次よりも前面に表示 */
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    width: 100px; /* アイコンの横幅（画像に合わせて調整可能） */
-    height: 100px; /* アイコンの縦幅 */
+    width: 150px;  
+    height: 150px; 
 }
+
+#btn-3d img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* メニューボタンのスタイル */
+#menu-btn {
+    position: fixed;
+    top: 2vh;
+    right: 2vw;
+    z-index: 1000; /* 目次よりも前面に表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 120px;  
+    height: 120px; 
+}
+
 #menu-btn img {
     width: 100%;
     height: auto;
     display: block;
 }
+
+/* 戻るボタンのスタイル */
+#back-btn {
+    position: fixed;
+    bottom: 8vw;
+    right: 3vw;
+    z-index: 1000; /* 目次よりも前面に表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 80px; 
+    height: 80px; 
+}
+
+#back-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .change-menu-btn {
     animation: change-menu-btn 1.0s ease-in-out; /* 1.0秒かけて滑らかに動く */
 }
@@ -141,27 +166,6 @@ body::before {
     50% { opacity: 0.5; } 
     100% { opacity: 1.0; }
 }
-/* バックボタン（右下固定）の設定 */
-#back-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000; /* 目次よりも前面に表示 */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 80px; /* アイコンの横幅（画像に合わせて調整可能） */
-    height: 80px; /* アイコンの縦幅 */
-}
-#back-btn img {
-    width: 100%;
-    color: #ffffff;
-    height: auto;
-    display: block;
-}
-
-
 
 /* 目次（隠しメニュー）の設定 */
 .toc {
@@ -452,12 +456,6 @@ img {
   width: 60%; /* または 70vw */
   display: block; /* ブロック要素に変更 */
   margin: 0 auto; /* 左右の余白を均等にして中央寄せ */
-}
-
-.btn{
-    width: 100%;
-    display: block;
-    border-radius: 4px;
 }
 
 .guest-box {
