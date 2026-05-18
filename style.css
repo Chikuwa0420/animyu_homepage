@@ -252,6 +252,15 @@ body::before {
     text-decoration: underline;
     color: #f4f413;
 }
+
+/* 目次と各種機能メニューの背景に画像を設定 */
+.toc, .fun-links {
+    background-image: linear-gradient(rgba(93, 7, 48, 0.8), rgba(93, 7, 48, 0.8)),url('image/picture/back.jpg');
+    background-size: cover;           /* メニューのサイズに合わせて画像をぴったり広げる */
+    background-position: center;      /* 画像の中心を基準に配置する */
+    background-repeat: no-repeat;     /* 画像の繰り返しを防ぐ */
+}
+
 /* ページの一番上の空白を消すためのリセット */
 body, html {
     margin: 0;
