@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const btn3d = document.getElementById('btn-3d');
     const menuBtn = document.getElementById('menu-btn');
+    const funMenuBtn = document.getElementById('fun-menu-btn');
+    const funLinks = document.getElementById('fun-links');
     const backBtn = document.getElementById('back-btn');
     const toc = document.getElementById('toc');
     const tocLinks = document.querySelectorAll('.toc a');
@@ -47,6 +49,13 @@ document.addEventListener('DOMContentLoaded', function() {
             window.open('https://3-d-animyuko-view.vercel.app/', '_blank');
         });
     }
+
+    //fun-menu-btnをクリックした時の処理
+    funMenuBtn.addEventListener('click', function() {
+        // fun-links'active' クラスを付け外しする（表示・非表示の切り替え）
+        funLinks.classList.toggle('active');
+    });
+
     // メニューボタンをクリックした時の処理
     menuBtn.addEventListener('click', function() {
         // 目次パネルに 'active' クラスを付け外しする（表示・非表示の切り替え）
