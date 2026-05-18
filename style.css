@@ -232,7 +232,7 @@ body::before {
 
 .toc h2 {
     margin-top: 100px;
-    font-size: 1.2em;
+    font-size: 1.8em;
     color: #ffffff;
 }
 .toc ul {
@@ -243,10 +243,11 @@ body::before {
     margin-bottom: 15px;
 }
 .toc a {
-    text-decoration: none;
+    text-decoration: underline;
     color: #ffffff;
     font-weight: bold;
     display: block;
+
 }
 .toc a:hover {
     text-decoration: underline;
