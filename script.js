@@ -68,7 +68,7 @@ if (btn3danimation) {
 if (btnLive) {
         btnLive.addEventListener('click', function() {
             // 別タブ表示
-            window.open('https://3-d-animyuko-view.vercel.app/', '_blank');
+            window.open('https://animuseum-live.vercel.app/', '_blank');
         });
     }
        // メニューボタンをクリックした時の処理
