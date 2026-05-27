@@ -6,9 +6,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #3b0143;
-    overflow-x: hidden; /* 横スクロールを防止 */
-
     position: relative;/*背景画像用の疑似要素*/
+}
+
+.container {
+    overflow-x: hidden; /* 横揺れ防止*/
+    width: 100%;
 }
 
 /* 背景画像のスタイル */
@@ -96,24 +99,81 @@ body::before {
     padding: 15px 20px 0 20px;/*空白の設定*/
 }
 
-/* メニューボタン（右上固定）の設定 */
-#menu-btn {
+/*fun-menu-btnのスタイル */
+#fun-menu-btn {
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 2.5vh;
+    left: 5vw;
     z-index: 1000; /* 目次よりも前面に表示 */
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    width: 100px; /* アイコンの横幅（画像に合わせて調整可能） */
-    height: 100px; /* アイコンの縦幅 */
+    width: 150px;  
+    height: 150px; 
 }
+
+#fun-menu-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* fun-links内のボタンの背景と枠線を消す */
+.fun-item {
+    background: none;       /* 背景を透明にする */
+    background-color: transparent; /* 念のため背景色も透明に指定 */
+    border: none;           /* 枠線を消す */
+    cursor: pointer;        /* マウスを乗せたら指マークにする */
+    padding: 0;             /* ボタン内側の余計な余白を消す */
+}
+
+/* もし画像のサイズも調整したい場合は以下も追加 */
+.fun-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* メニューボタンのスタイル */
+#menu-btn {
+    position: fixed;
+    top: 2vh;
+    right: 2vw;
+    z-index: 1000; /* 目次よりも前面に表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 120px;  
+    height: 120px; 
+}
+
 #menu-btn img {
     width: 100%;
     height: auto;
     display: block;
 }
+
+/* 戻るボタンのスタイル */
+#back-btn {
+    position: fixed;
+    bottom: 8vw;
+    right: 3vw;
+    z-index: 1000; /* 目次よりも前面に表示 */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 80px; 
+    height: 80px; 
+}
+
+#back-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .change-menu-btn {
     animation: change-menu-btn 1.0s ease-in-out; /* 1.0秒かけて滑らかに動く */
 }
@@ -123,28 +183,33 @@ body::before {
     50% { opacity: 0.5; } 
     100% { opacity: 1.0; }
 }
-/* バックボタン（右下固定）の設定 */
-#back-btn {
+
+/*fun-menu-content*/
+.fun-links{
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000; /* 目次よりも前面に表示 */
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 80px; /* アイコンの横幅（画像に合わせて調整可能） */
-    height: 80px; /* アイコンの縦幅 */
+    top: 0;
+    left: -200px; /* 初期状態では画面の左外（-300px）に配置して隠す */
+    opacity: 0; /*透明度0*/
+    width: 40vw;
+    height: 100vh;
+    background-color: #831a49;
+    box-shadow: 2px 0 5px rgba(101, 49, 108, 0.2);
+    transition: left 0.8s ease, opacity 1.2s ease; /* スライドする際のアニメーション速度 */
+    z-index: 999;
+    padding: 80px 20px 20px; /* ボタンと被らないよう上部に余白 */
+    box-sizing: border-box; 
+
 }
-#back-btn img {
-    width: 100%;
+/* fun-menu-contentが表示されている時の状態（JSでこのクラスを付け外しします） */
+.fun-links.active {
+    left: 0; /* 画面の左端ぴったりに移動 */
+    opacity: 1.0;
+}
+.fun-links h2 {
+    margin-top: 100px;
+    font-size: 1.2em;
     color: #ffffff;
-    height: auto;
-    display: block;
 }
-
-
-
 /* 目次（隠しメニュー）の設定 */
 .toc {
     position: fixed;
@@ -153,7 +218,7 @@ body::before {
     opacity: 0; /*透明度0*/
     width: 40vw;
     height: 100vh;
-    background-color: #87558f;
+    background-color: #831a49;
     box-shadow: -2px 0 5px rgba(101, 49, 108, 0.2);
     transition: right 0.8s ease, opacity 1.2s ease; /* スライドする際のアニメーション速度 */
     z-index: 999;
@@ -169,7 +234,7 @@ body::before {
 
 .toc h2 {
     margin-top: 100px;
-    font-size: 1.2em;
+    font-size: 1.8em;
     color: #ffffff;
 }
 .toc ul {
@@ -180,15 +245,25 @@ body::before {
     margin-bottom: 15px;
 }
 .toc a {
-    text-decoration: none;
+    text-decoration: underline;
     color: #ffffff;
     font-weight: bold;
     display: block;
+
 }
 .toc a:hover {
     text-decoration: underline;
     color: #f4f413;
 }
+
+/* 目次と各種機能メニューの背景に画像を設定 */
+.toc, .fun-links {
+    background-image: linear-gradient(rgba(93, 7, 48, 0.8), rgba(93, 7, 48, 0.8)),url('image/picture/back.jpg');
+    background-size: cover;           /* メニューのサイズに合わせて画像をぴったり広げる */
+    background-position: center;      /* 画像の中心を基準に配置する */
+    background-repeat: no-repeat;     /* 画像の繰り返しを防ぐ */
+}
+
 /* ページの一番上の空白を消すためのリセット */
 body, html {
     margin: 0;
@@ -434,12 +509,6 @@ img {
   width: 60%; /* または 70vw */
   display: block; /* ブロック要素に変更 */
   margin: 0 auto; /* 左右の余白を均等にして中央寄せ */
-}
-
-.btn{
-    width: 100%;
-    display: block;
-    border-radius: 4px;
 }
 
 .guest-box {
