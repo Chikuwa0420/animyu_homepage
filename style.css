@@ -48,6 +48,8 @@ body::before {
 .full-screen-poster {
     width: 100vw; /* 画面幅いっぱいにする */
     line-height: 0; /* 画像の下にできる不要な隙間をなくす */
+    animation: spinZoomOut 10.0s cubic-bezier(0.1, 1.0, 0.1, 1.0) forwards;
+    cursor: pointer;
 }
 
 .full-screen-poster img {
