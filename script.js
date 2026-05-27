@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const btn3d = document.getElementById('btn-3d');
-    const btn3danimation = document.getElementById('btn-3danimation');
-    const btnLive = document.getElementById('btn-live');
     const menuBtn = document.getElementById('menu-btn');
-    const funMenuBtn = document.getElementById('fun-menu-btn');
-    const funLinks = document.getElementById('fun-links');
     const backBtn = document.getElementById('back-btn');
     const toc = document.getElementById('toc');
     const tocLinks = document.querySelectorAll('.toc a');
@@ -44,34 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
             menuImg.classList.add('change-menu-btn');
     }
 
- //fun-menu-btnをクリックした時の処理
-    funMenuBtn.addEventListener('click', function() {
-        // fun-links'active' クラスを付け外しする（表示・非表示の切り替え）
-        funLinks.classList.toggle('active');
-    });
-
     // 3Dボタンをクリックした時の処理
     if (btn3d) {
         btn3d.addEventListener('click', function() {
-            // 別タブ表示
+            // もし「別のタブ」で開きたい場合は、こちらを使ってください
             window.open('https://3-d-animyuko-view.vercel.app/', '_blank');
         });
     }
-// 3Dアニメーションボタンをクリックした時の処理
-if (btn3danimation) {
-        btn3danimation.addEventListener('click', function() {
-            // 別タブ表示
-            window.open('https://3-d-animyuko-animation.vercel.app//', '_blank');
-        });
-    }
-// Liveボタンをクリックした時の処理
-if (btnLive) {
-        btnLive.addEventListener('click', function() {
-            // 別タブ表示
-            window.open('https://animuseum-live.vercel.app/', '_blank');
-        });
-    }
-       // メニューボタンをクリックした時の処理
+    // メニューボタンをクリックした時の処理
     menuBtn.addEventListener('click', function() {
         // 目次パネルに 'active' クラスを付け外しする（表示・非表示の切り替え）
         toc.classList.toggle('active');
@@ -174,21 +150,6 @@ sectionTitles.forEach(title => {
     }
 });
 
-// === フルスクリーンポスターの画像切り替え処理 ===
-const fullScreenPosterImg = document.querySelector('.full-screen-poster img');
-if (fullScreenPosterImg) {
-    fullScreenPosterImg.addEventListener('click', function() {
-        // 現在設定されている画像の相対パスを取得
-        const currentSrc = this.getAttribute('src');
-        
-        // 画像がvol.42.pngならEvent_Details.jpgへ、そうでないならvol.42.pngへ切り替え
-        if (currentSrc === 'image/picture/vol.42.png') {
-            this.setAttribute('src', 'image/picture/Event_Details.jpg');
-        } else {
-            this.setAttribute('src', 'image/picture/vol.42.png');
-        }
-    });
-}
 
  //画像切り替えボタンの処理
 // ポスター画像を変更する関数
