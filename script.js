@@ -176,17 +176,32 @@ sectionTitles.forEach(title => {
 
 // === フルスクリーンポスターの画像切り替え処理 ===
 const fullScreenPosterImg = document.querySelector('.full-screen-poster img');
+
+// ローテーションさせたい画像の相対パスを配列で定義
+const images = [
+    'image/picture/vol.42.png',
+    'image/picture/TT.jpg' ,
+    'image/picture/Event_Details.jpg'
+];
+
 if (fullScreenPosterImg) {
     fullScreenPosterImg.addEventListener('click', function() {
         // 現在設定されている画像の相対パスを取得
         const currentSrc = this.getAttribute('src');
+        // 現在の画像が配列の何番目にあるかを探す
+        let currentIndex = images.indexOf(currentSrc);
         
-        // 画像がvol.42.pngならEvent_Details.jpgへ、そうでないならvol.42.pngへ切り替え
-        if (currentSrc === 'image/picture/vol.42.png') {
-            this.setAttribute('src', 'image/picture/Event_Details.jpg');
-        } else {
-            this.setAttribute('src', 'image/picture/vol.42.png');
+        // もし予期せぬ画像がセットされていた場合は、0番目（最初）とみなす
+        if (currentIndex === -1) {
+            currentIndex = 0;
         }
+        
+        // 次の画像の番号を計算する
+        // %（割り算の余り）を使うことで、最後までいったら自動的に 0（最初）に戻ります
+        const nextIndex = (currentIndex + 1) % images.length;
+        
+        // 画像を切り替える
+        this.setAttribute('src', images[nextIndex]);
     });
 }
 
