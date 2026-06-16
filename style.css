@@ -102,19 +102,19 @@ body::before {
 /*fun-menu-btnのスタイル */
 #fun-menu-btn {
     position: fixed;
-    top: 2.5vh;
-    left: 5vw;
+    top: 6.5vh;
+    left: 2vw;
     z-index: 1000; /* 目次よりも前面に表示 */
     background: none;
     border: none;
     cursor: pointer;
     padding: 0;
-    width: 150px;  
-    height: 150px; 
+    width: 250px;  
+    height: 250px; 
 }
 
 #fun-menu-btn img {
-    width: 100%;
+    width: 150%;
     height: auto;
     display: block;
 }
