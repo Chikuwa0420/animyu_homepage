@@ -196,7 +196,7 @@ body::before {
     box-shadow: 2px 0 5px rgba(101, 49, 108, 0.2);
     transition: left 0.8s ease, opacity 1.2s ease; /* スライドする際のアニメーション速度 */
     z-index: 999;
-    padding: 80px 20px 20px; /* ボタンと被らないよう上部に余白 */
+    padding: 150px 20px 20px; /* ボタンと被らないよう上部に余白 */
     box-sizing: border-box; 
 
 }
