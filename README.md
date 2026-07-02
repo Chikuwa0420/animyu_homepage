@@ -1,5 +1,6 @@
 # ANIMUSEUM! Homepage
 
+![web.image](./images/explain/web.explain1.png)
 ## 概要 (Overview)
 新潟大学サークル「あにみゅ！」主催の、サブカルチャー楽曲DJイベントのホームページ。
 イベントキャラの3Dモデルを投影するAR機能を搭載した。(自分で製作した別リポジトリのサイトへ移動する)
