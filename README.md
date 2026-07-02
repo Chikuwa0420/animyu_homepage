@@ -10,6 +10,7 @@
 - ANIMUSEUM!イベント関連情報
 
 - Tools ボタンより-
+![feature/Tools-btn.image](/image/explain/web.explain2.png)
 - VIEW
   イベント公式キャラクターである「あにみゅ子ちゃん」の3DモデリングをARで見ることができる。
   
