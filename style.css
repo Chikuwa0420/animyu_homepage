@@ -332,17 +332,17 @@ body, html {
 }
 /*画像ボタンの背景画像*/
 .poster1 {
-    background-image: url('image/picture/vol.42.png'); /* vol.42の画像へのパス */
+    background-image: url('image/picture/full_poster.png'); /* full_posterの画像へのパス */
 }
 .poster2 {
-    background-image: url('image/picture/vol.41.jpg'); /* 新歓の画像へのパス */
+    background-image: url('image/picture/secound.png'); /* secoundの画像へのパス */
 }
 .poster3 {
-    background-image: url('image/picture/2026_gaiden.png'); /* 新歓の画像へのパス */
+    background-image: url('image/picture/third.png'); /* thirdの画像へのパス */
 }
 
 .poster4 {
-    background-image: url('image/picture/TT.png'); /* TTの画像へのパス */
+    background-image: url('image/picture/oldest.png'); /* oldestの画像へのパス */
 }
 
 /* 各セクションのデザイン */
