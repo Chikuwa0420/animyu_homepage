@@ -180,8 +180,7 @@ const fullScreenPosterImg = document.querySelector('.full-screen-poster img');
 // ローテーションさせたい画像の相対パスを配列で定義
 const images = [
     'image/picture/vol.42.png',
-    'image/picture/TT.jpg' ,
-    'image/picture/Event_Details.jpg'
+    'image/picture/TT.png' ,
 ];
 
 if (fullScreenPosterImg) {
