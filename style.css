@@ -341,6 +341,10 @@ body, html {
     background-image: url('image/picture/2026_gaiden.png'); /* 新歓の画像へのパス */
 }
 
+.poster4 {
+    background-image: url('image/picture/TT.png'); /* TTの画像へのパス */
+}
+
 /* 各セクションのデザイン */
 section {
     margin-bottom: 50px;
